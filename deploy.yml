@@ -1,0 +1,15 @@
+---
+- name: Deploy Maven Artifact
+  hosts: servers
+
+  tasks:
+
+    - name: Create deployment directory
+      file:
+        path: /tmp/deployment
+        state: directory
+
+    - name: Copy artifact
+      copy:
+        src: target/
+        dest: /tmp/deployment/
